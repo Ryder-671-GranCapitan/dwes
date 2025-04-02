@@ -5,11 +5,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/recu/includes/funciones.php');
 inicio_html('repetición recuperación ra2-3', ['/recu/styles/formulario.css', '/recu/styles/general.css', '/recu/styles/tablas.css']);
 
 $TAMANIO_MAXIMO_KB = 200;
-$TIPOS_MIME_VALIDOS = ['text/csv'];
+$TIPOS_MIME_VALIDOS = ['text/csv', 'application/csv', 'application/vnd.ms-excel'];
 
 $tipos_vehiculo = [
     't' => 'Turismo',
-    '' => ' Furgoneta'
+    'f' => 'Furgoneta'
 ];
 
 $marcas_vehiculo = [
