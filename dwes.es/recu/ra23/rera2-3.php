@@ -8,13 +8,14 @@ $TAMANIO_MAXIMO_KB = 200;
 $TIPOS_MIME_VALIDOS = ['text/csv', 'application/csv', 'application/vnd.ms-excel'];
 
 $tipos_vehiculo = [
-    't' => 'Turismo',
-    'f' => 'Furgoneta'
+    'T' => 'Turismo',
+    'F' => 'Furgoneta'
 ];
 
 $marcas_vehiculo = [
-    'F' => 'Fiat',
-    'O' => 'Opel'
+    'f' => 'Fiat',
+    'o' => 'Opel',
+    'm' => 'Mercedes'
 ];
 
 echo '<header>REPETICIÓN DEL EXAMEN DE RECUPERACIÓN</header>';
@@ -116,11 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $datos_validados = filter_var_array($datos_saneados, $filtro_validar);
 
         // validar con logica de negocio
-        if (!array_key_exists($datos_saneados['tipo'], $tipos_vehiculo)) {
-            $datos_saneados['tipo'] = false;
+        if (!array_key_exists($datos_validados['tipo'], $tipos_vehiculo)) {
+            $datos_validados['tipo'] = false;
         }
-        if (!array_key_exists($datos_saneados['marca'], $marcas_vehiculo)) {
-            $datos_saneados['marca'] = false;
+        if (!array_key_exists($datos_validados['marca'], $marcas_vehiculo)) {
+            $datos_validados['marca'] = false;
         }
 
         //si falta algo, termina
@@ -128,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (
             count($array_filtrado) < 4 ||
-            count($array_filtrado) == 4 && isset($datos_validados['itv'])
+            count($array_filtrado) == 4 && $datos_validados['itv']
         ) {
             echo "<h3>Error datos no validos</h3>";
             exit(3);
@@ -137,45 +138,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // abrir el archivo y comprobar los datos con lso del archivo
         $fichero = fopen($tmp_name_fichero, 'r');
-        $cabecera = true;
-        while ($linea = fgetcsv($fichero,)) {
-            if ($cabecera) {
+        $linea = fgetcsv($fichero);
+
+
     ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th><?= $linea[0] ?></th>
-                            <th><?= $linea[1] ?></th>
-                            <th><?= $linea[2] ?></th>
-                            <th><?= $linea[3] ?></th>
-                            <th><?= $linea[4] ?></th>
-                        </tr>
-                    </thead>
+        <table>
+            <thead>
+                <tr>
+                    <th><?= $linea[0] ?></th>
+                    <th><?= $linea[1] ?></th>
+                    <th><?= $linea[2] ?></th>
+                    <th><?= $linea[3] ?></th>
+                </tr>
+            </thead>
+            <tbody>
 
                 <?PHP
-                $cabecera = false;
-            }
+                while ($linea = fgetcsv($fichero)) {
+                    if (
+                        $linea[0] == $tipos_vehiculo[$datos_validados['tipo']] &&
+                        $linea[1] == $marcas_vehiculo[$datos_validados['marca']] &&
+                        $linea[2] == $datos_validados['antiguedad'] &&
+                        $linea[3] == ($datos_validados['itv'] ? 'Si' : 'No')
+                    ) {
 
                 ?>
-                <tbody>
-                    <tr>
-                        <td><?= $linea[0] ?></td>
-                        <td><?= $linea[1] ?></td>
-                        <td><?= $linea[2] ?></td>
-                        <td><?= $linea[3] ?></td>
-                        <td><?= $linea[4] ?></td>
-                    </tr>
-                </tbody>
-            <?php
+                        <tr>
+                            <td><?= $linea[0] ?></td>
+                            <td><?= $linea[1] ?></td>
+                            <td><?= $linea[2] ?></td>
+                            <td><?= $linea[3] ?></td>
+                        </tr>
+                    <?php
+                    }
+
+                    ?>
+            </tbody>
+        </table>
+<?php
+
+                }
+            }
         }
-
-            ?>
-                </table>
-        <?php
-
-    }
-}
-
-
-fin_html();
-        ?>
+        fin_html();
+?>
