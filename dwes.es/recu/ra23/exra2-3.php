@@ -55,22 +55,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!is_array($datos_validados['cursos']) || array_diff($datos_validados['cursos'], array_keys($cursos))) exit(1);
 
     // comprobar Situación y si hay fichero subido, en tal caso empezar guardar el archivo
-    if ($datos_validados['situacion'] && $_FILES['tarjeta']){
+    if ($datos_validados['situacion'] && $_FILES['tarjeta']) {
         // si esta desempleado proceso el fichero
         $mime_fichero = $_FILES['tarjeta']['type'];
         $kb_fichero = $_FILES['tarjeta']['size'];
         $tmp_name_fichero = $_FILES['tarjeta']['tmp_name'];
         $errores_fichero = $_FILES['tarjeta']['error'];
 
-        if( // comprobación del tipo mime del fichero
+        if ( // comprobación del tipo mime del fichero
             !in_array($mime_fichero, $TIPOS_MIME_VALIDOS) ||
             !in_array(mime_content_type($tmp_name_fichero), $TIPOS_MIME_VALIDOS) ||
             !in_array(finfo_file(finfo_open(FILEINFO_MIME_TYPE), $tmp_name_fichero), $TIPOS_MIME_VALIDOS)
-            ) exit(2);
+        ) exit(2);
 
-        
+
         if ($errores_fichero === UPLOAD_ERR_FORM_SIZE) exit(3); // error en el tamaño del archivo
-        if ($kb_fichero > $cursosTAMANIO_MAXIMO_KB *1204) exit(3);
+        if ($kb_fichero > $cursosTAMANIO_MAXIMO_KB * 1204) exit(3);
 
         $directorio_subida = $_SERVER['DOCUMENT_ROOT'] . "/recu/ra23/tarjetas";
 
@@ -79,23 +79,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // se crea la carpeta tarjetas, si no se crea da error
             if (!file_exists($directorio_subida) || !is_dir($directorio_subida)) {
-                if (!mkdir($directorio_subida,0755,true)) {
+                if (!mkdir($directorio_subida, 0755, true)) {
                     exit(4); // error al crear la carpeta
                 }
             }
 
             // guardar el archivo
             if (move_uploaded_file($tmp_name_fichero, $directorio_subida . "/{$datos_validados['email']}.pdf")) exit(5);
-        
-        
-        }else exit(6); //error, el usuario ha mandado el fichero y no esta desempleado o no ha mandado fichero estando desempleado
+        } else exit(6); //error, el usuario ha mandado el fichero y no esta desempleado o no ha mandado fichero estando desempleado
 
 
         // PRESUPUESTO
         $precio_total = 0;
         $precio_cursos = 0;
         $precio_clases = 10 * $datos_validados['clases'];
-        foreach ($datos_validados['cursos'] as $curso_cod) {            
+        foreach ($datos_validados['cursos'] as $curso_cod) {
             $precio_cursos += $cursos[$curso_cod][1];
         }
 
@@ -108,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // RESULTADO
 
-        ?>
+?>
         <table>
             <thead>
                 <th>email</th>
@@ -119,16 +117,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <tbody>
                 <tr>
-                    <td><?=$datos_validados['email'] ?></td>
+                    <td><?= $datos_validados['email'] ?></td>
                     <td>
                         <?php foreach ($datos_validados['cursos'] as $curso_cod): ?>
-                            <?=$cursos[cod]?>
-                        <?php endforeach;?>
+                            <?= $cursos[$curso_cod][0] ?> => <?= $cursos[$curso_cod][1] ?>
+                        <?php endforeach; ?>
                     </td>
+                    <td><?= $datos_validados['situacion'] ? 'desempleado' : 'empleado' ?></td>
                 </tr>
             </tbody>
         </table>
-        <?php
+    <?php
 
 
 
@@ -143,9 +142,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // FORMULARIO
-?>
+    ?>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-        <input type="hidden" name="MAX_FILE_SIZE" value="<?= $TAMANIO_MAXIMO_KB *1024?>">
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?= $TAMANIO_MAXIMO_KB * 1024 ?>">
         <fieldset>
             <legend>Cursos</legend>
 
