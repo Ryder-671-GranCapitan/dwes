@@ -1,7 +1,4 @@
 <?php
-
-use function PHPSTORM_META\type;
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/recu/includes/funciones.php');
 
 inicio_html('examen original RA 2-3', ['/recu/styles/formulario.css', '/recu/styles/general.css', '/recu/styles/tablas.css']);
@@ -128,14 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tbody>
         </table>
     <?php
-
-
-
     }
-
-    //
-
-
 }
 
 
@@ -158,14 +148,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <?php endforeach; ?>
             </select>
 
+    
             <label for="clases">numero de clases</label>
             <input type="text" name="clases" id="clases">
 
             <label for="situacion">Situación de desempleo</label>
             <input type="checkbox" name="situacion" id="situacion">
 
-            <label for="tarjeta">tarjeta de demandante de empleo</label>
-            <input type="file" name="tarjeta" id="tarjeta" accept="application/pdf">
+            <label for="fichero">tarjeta de demandante de empleo</label>
+            <input type="file" name="fichero" id="fichero" accept="<?=$TIPOS_MIME_VALIDOS[0]?>">
 
         </fieldset>
         <button type="submit">enviar</button>
