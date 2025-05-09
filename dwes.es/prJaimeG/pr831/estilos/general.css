@@ -1,0 +1,64 @@
+body {
+    font: 14pt sans-serif;
+    width: 80%;
+    margin: 0 auto;
+
+    box-shadow: 0.2em 0.2em 0.1em lightgray;
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    justify-items: flex-start;
+    align-items: center;
+    gap: 0.2em;
+
+    margin-bottom: 1em;
+
+}
+
+label {
+    justify-self: flex-end;
+    
+    color: darkblue;
+}
+
+input, select, option, textarea, button {
+    padding: 0.2em;
+    font: inherit;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form img {
+    width: 128px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+caption {
+    font-size: 1.5em;
+}
+
+thead {
+    background-color: darkslateblue;
+    color: whitesmoke;
+}
+
+td, th {
+    border: 0.15em solid darkblue;
+    padding: 0.5em;
+}

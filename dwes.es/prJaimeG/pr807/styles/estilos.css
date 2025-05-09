@@ -1,0 +1,112 @@
+body {
+    font: 14pt 'Arial', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f4f4f9;
+    color: #333;
+    box-shadow: 0.2em 0.2em 0.1em lightgray;
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 1em;
+}
+
+legend {
+    font-weight: bold;
+    color: #4a6fa5;
+    padding: 0 10px;
+}
+
+label {
+    justify-self: flex-end;
+    color: #4a6fa5;
+}
+
+input, select, option, textarea, button {
+    padding: 0.5em;
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form img {
+    width: 128px;
+    margin-bottom: 1em;
+}
+
+button {
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+button:hover {
+    background-color: #3a5985;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1em;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+caption {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #4a6fa5;
+}
+
+thead {
+    background-color: #4a6fa5;
+    color: whitesmoke;
+}
+
+td, th {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}

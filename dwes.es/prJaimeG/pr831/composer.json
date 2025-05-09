@@ -1,0 +1,13 @@
+{
+    "require":{
+        "monolog/monolog": "3.0.*"
+    },
+    "autoload":{
+        "psr-4": {
+            "pr831\\enrutador\\" : "pr831/enrutador",
+            "pr831\\modelo\\" : "pr831/modelo",
+            "pr831\\orm\\" : "pr831/orm",
+            "pr831\\util\\" : "pr831/util"
+        }
+    }
+}
