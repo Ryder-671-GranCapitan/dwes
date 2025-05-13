@@ -105,8 +105,10 @@
                 body: JSON.stringify(nuevaActividad)
             })
             .then(response => {
-                if (!response.ok) throw new Error('Error en la respuesta del servidor');
-                return response.json();
+                // if (!response.ok) throw new Error('Error en la respuesta del servidor');
+                console.log(response);
+                
+                // return response.json();
             })
             .then(data => {
                 const divRespuesta = document.getElementById('divRespuesta');

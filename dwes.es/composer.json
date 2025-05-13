@@ -4,7 +4,11 @@
     },
     "autoload":{
         "psr-4": {
-            "pr831\\enrutador\\" : "pr831/enrutador"
+            "pr826\\enrutador\\" : "pr826/enrutador",
+            "pr826\\modelo\\" : "pr826/modelo",
+            "pr826\\orm\\" : "pr826/orm",
+            "pr826\\util\\" : "pr826/util",
+            "pr826\\vista\\" : "pr826/vista"
         }
     }
 }
