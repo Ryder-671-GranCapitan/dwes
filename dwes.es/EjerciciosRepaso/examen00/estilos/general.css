@@ -1,0 +1,12 @@
+body {
+    font: 14pt sans-serif;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    font-size: 3em;
+    text-align: center;
+    height: 2em;
+    line-height: 2em;
+}
