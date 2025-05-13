@@ -19,6 +19,8 @@ class Enrutador {
     // Función que inicializa el array de rutas con toda las rutas que hay disponibles
     private function iniciarRutas() {
         $this->rutas[] = new Ruta("POST", "#/actividad$#", Modelo26::class, "insert");
+ 
+
     }
 
     // Método que se encargará de manejar la petición
