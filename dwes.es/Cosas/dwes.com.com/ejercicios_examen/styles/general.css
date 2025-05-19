@@ -1,0 +1,10 @@
+body{
+  font:14pt sans-serif;
+
+  box-shadow: 0.2em 0.2em 0.1em lightgray;
+}
+
+header{
+  text-align: center;
+  font-size: 2em;
+}
