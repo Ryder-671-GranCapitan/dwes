@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de empleo</title>
+    <link type ="text/css" rel="stylesheet" href="styles/general.css">
+    <link type ="text/css" rel="stylesheet" href="styles/formulario.css">
+  </head>
+  <body>
+    <header>
+      Solicitud de empleo
+    </header>
+    <form method="POST" action="/adrian-dwes/dwes.com.com/ra3/forms/solicitud_empleo.php">
+      <!-- Información personal -->
+      <fieldset>
+        <legend>Datos personales:</legend>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" name="nombre" id="nombre" size="50" required placeholder="Introduce aquí tu nombre completo">
+        
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" size="40" required placeholder="mail@mail.es">
+
+        <label for="clave">Clave</label>
+        <input type="password" name="clave" id="clave" size="10" required placeholder="password">
+
+        <label for="linkedin">Perfil de Linkedin</label>
+        <input type="url" name="linkedin" id="linkedin" size="50">
+      </fieldset>
+
+      <fieldset>
+        <legend>Detalles del trabajo</legend>
+        <label for="fecha_disponibilidad">Fecha disponibilidad</label>
+        <input type="date" name="fecha_disponibilidad" id="fecha_disponibilidad" required>
+        <label for="hora_entrevista">Hora Entrevista</label>
+        <input type="time" name="hora_entrevista" id="hora_entrevista" required>
+        <label for="salario">Expectativa salarial</label>
+        <input type="number" name="salario" id="salario" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Preferencias del puesto</legend>
+        <label for="preferencias_puesto">¿En qué areas quieres trabajar?</label>
+        <div>
+          <input type="checkbox" class="input" name="areas[]" id="area1" value="ds">Desarrollo Gráfico<br>
+          <input type="checkbox" class="input" name="areas[]" id="area2" value="dg">Desarrollo Software<br>
+          <input type="checkbox" class="input" name="areas[]" id="area3" value="mk">Marketing<br>
+          <input type="checkbox" class="input" name="areas[]" id="area4" value="rh">Recursos humanos<br>
+        </div>
+      </fieldset>
+
+      <input type="submit" name="operacion" value="Enviar">
+      
+    </form>
+  </body>
+</html>
