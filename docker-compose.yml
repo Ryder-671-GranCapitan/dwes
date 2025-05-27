@@ -22,9 +22,9 @@ services:
   composer:
     image: composer
     container_name: composer_pr831
-    working_dir: /var/www/dwes.es
+    working_dir: /var/www/examen.com
     volumes:
-      - ./dwes.es:/var/www/dwes.es
+      - ./dwes.es:/var/www/examen.com
     command: install
 
     # MySQL
