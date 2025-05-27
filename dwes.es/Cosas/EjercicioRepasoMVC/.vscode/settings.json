@@ -1,0 +1,34 @@
+{
+    "editor.semanticHighlighting.enabled": "configuredByTheme",
+    "editor.semanticTokenColorCustomizations": {
+
+    },
+    "editor.tokenColorCustomizations": {
+
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        }
+    },
+    "editor.fontFamily": "'Cascadia Code PL', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontVariations": false,
+    "editor.cursorBlinking": "expand",
+    
+}

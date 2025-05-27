@@ -6,7 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'pr831\\enrutador\\' => array($baseDir . '/pr831/enrutador'),
+    'pr826\\vista\\' => array($baseDir . '/pr826/vista'),
+    'pr826\\util\\' => array($baseDir . '/pr826/util'),
+    'pr826\\orm\\' => array($baseDir . '/pr826/orm'),
+    'pr826\\modelo\\' => array($baseDir . '/pr826/modelo'),
+    'pr826\\enrutador\\' => array($baseDir . '/pr826/enrutador'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
 );

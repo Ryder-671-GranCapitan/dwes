@@ -19,7 +19,7 @@ RUN pecl install redis
 RUN a2enmod rewrite
 
 # Habilitar sitios de Apache
-RUN a2ensite dwes.conf && a2ensite examen.conf && a2ensite laravel.local.conf
+RUN a2ensite dwes.conf && a2ensite examen.conf
 
 # INSTALL ZIP TO USE COMPOSER
 RUN apt-get update && apt-get install -y \
@@ -34,4 +34,3 @@ RUN docker-php-ext-install zip
 # Exponer los puertos necesarios
 EXPOSE 80
 EXPOSE 9003
-

@@ -1,0 +1,16 @@
+/*
+Formato para una barra de herramientas con botones de formulario
+*/
+
+#bh {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0.5em;
+}
+
+.boton_bh {
+    padding: 0.5em;
+    font-size: 1.5em;
+}

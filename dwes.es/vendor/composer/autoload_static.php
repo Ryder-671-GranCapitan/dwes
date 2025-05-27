@@ -9,7 +9,11 @@ class ComposerStaticInita950e8f1c369daa245aa514089205350
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
-            'pr831\\enrutador\\' => 16,
+            'pr826\\vista\\' => 12,
+            'pr826\\util\\' => 11,
+            'pr826\\orm\\' => 10,
+            'pr826\\modelo\\' => 13,
+            'pr826\\enrutador\\' => 16,
         ),
         'P' => 
         array (
@@ -22,9 +26,25 @@ class ComposerStaticInita950e8f1c369daa245aa514089205350
     );
 
     public static $prefixDirsPsr4 = array (
-        'pr831\\enrutador\\' => 
+        'pr826\\vista\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/pr831/enrutador',
+            0 => __DIR__ . '/../..' . '/pr826/vista',
+        ),
+        'pr826\\util\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pr826/util',
+        ),
+        'pr826\\orm\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pr826/orm',
+        ),
+        'pr826\\modelo\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pr826/modelo',
+        ),
+        'pr826\\enrutador\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pr826/enrutador',
         ),
         'Psr\\Log\\' => 
         array (
